@@ -30,5 +30,8 @@ class TestWeek1(unittest.TestCase):
 	def test_sum_when_commas_at_ends_of_numbers_in_string(self):
 		self.assertEqual(add(",123,"), 6)
 
+	def test_sum_when_commas_and_newlines_in_string(self):
+		self.assertEqual(add(",1\n2\n3,"), 6)
+
 if __name__ == '__main__':
     unittest.main()
