@@ -16,5 +16,9 @@ class TestWeek1(unittest.TestCase):
 		self.assertEqual(add("1234"), 10)
 		self.assertEqual(add("12345"), 15)
 
+	def test_sum_when_newlines_btwn_numbers_in_string(self):
+		self.assertEqual(add("1\n2\n3"), 6)
+		self.assertEqual(add("1\n23"), 6)
+
 if __name__ == '__main__':
     unittest.main()
