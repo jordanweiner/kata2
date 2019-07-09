@@ -23,5 +23,9 @@ class TestWeek1(unittest.TestCase):
 	def test_sum_when_newlines_at_ends_of_numbers_in_string(self):
 		self.assertEqual(add("\n123\n"), 6)
 
+	def test_sum_when_commas_btwn_numbers_in_string(self):
+		self.assertEqual(add("1,2,3"), 6)
+		self.assertEqual(add("1,23"), 6)
+
 if __name__ == '__main__':
     unittest.main()
