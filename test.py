@@ -12,6 +12,7 @@ class TestWeek1(unittest.TestCase):
 	def test_sum_when_two_numbers_in_string(self):
 		self.assertEqual(add("12"), 3)
 
+class TestWeek2(unittest.TestCase):
 	def test_sum_when_unknown_amount_of_numbers_in_string(self):
 		self.assertEqual(add("1234"), 10)
 		self.assertEqual(add("12345"), 15)
