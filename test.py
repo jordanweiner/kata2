@@ -34,5 +34,9 @@ class TestWeek2(unittest.TestCase):
 	def test_sum_when_commas_and_newlines_in_string(self):
 		self.assertEqual(add(",1\n2\n3,"), 6)
 
+class TestWeek3(unittest.TestCase):
+	def test_sum_when_delimiter_specified(self):
+		self.assertEqual(add("//;\n1;2"), 3)
+
 if __name__ == '__main__':
     unittest.main()
