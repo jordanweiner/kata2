@@ -44,5 +44,10 @@ class TestWeek3(unittest.TestCase):
 	def test_exception_thrown_when_string_has_negative_number(self):
 		self.assertRaises(Exception, add, "//;\n1-23")
 
+	def test_error_message_when_exception_thrown_on_neg_number(self):
+		with self.assertRaises(Exception) as error:
+			add("//;\n1-2-3")
+		self.assertEqual(error.exception.message, 'negatives not allowed: -2 -3')
+
 if __name__ == '__main__':
     unittest.main()
