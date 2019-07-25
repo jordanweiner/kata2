@@ -1,28 +1,30 @@
 def add(numbers):
-  cleanString = ""
+  cleaned = ""
   numList = []
   if (numbers.startswith("//")):
     # find delimiter
     delim = numbers[2:(numbers.find('\n'))]
     # clean numbers string
-    cleanString = numbers.replace(delim, "0").replace("//", "0").replace("\n", "0")
+    cleaned = numbers.replace("//", "").replace("\n", "").split(delim)
   else:
     # clean numbers string
-    cleanString = numbers.replace(",", "0").replace("\n", "0")
+    cleaned = list(numbers.replace(",", "").replace("\n", ""))
+    # turn string to list of ints
     
-  if (noNegatives(cleanString)):
-    numList = [int(c) for c in cleanString]   # turn string to list of ints
+  if (noNegatives(cleaned)):
+    # if empty string, turn it into a 0
+    numList = [(int(c) if c != "" else 0) for c in cleaned] 
     return sum(numList)
 
-def noNegatives(string):
+def noNegatives(cleaned):
   negList = []
-  if '-' not in string:
-    return 1
+  noNeg = True
+  for i, c in enumerate(cleaned):
+    if ('-' in c):
+      negList.append(c)
+      noNeg = False
 
-  for i, c in enumerate(string):
-    if (c == '-'):
-      negList.append("-" + string[i+1])
-
-  exceptionStr = "negatives not allowed: " + " ".join(negList)
-  raise Exception(exceptionStr)
-  return 0
+  if (noNeg == False):
+    exceptionStr = "negatives not allowed: " + " ".join(negList)
+    raise Exception(exceptionStr)
+  return noNeg
