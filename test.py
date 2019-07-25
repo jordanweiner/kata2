@@ -38,5 +38,8 @@ class TestWeek3(unittest.TestCase):
 	def test_sum_when_delimiter_specified(self):
 		self.assertEqual(add("//;\n1;2"), 3)
 
+	def test_sum_when_delimeter_not_specified(self):
+		self.assertEqual(add("1,23\n4"), 10)
+
 if __name__ == '__main__':
     unittest.main()
