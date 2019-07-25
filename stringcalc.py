@@ -12,10 +12,11 @@ def add(numbers):
     # turn string to list of ints
     
   if (noNegatives(cleaned)):
-    # if empty string, turn it into a 0
     numList = [stringToInt(c) for c in cleaned] 
     return sum(numList)
 
+# if empty string, turn it into a 0
+# otherwise, return the int version if it's not over 1000
 def stringToInt(c):
   if (c != "" and int(c) <= 1000):
     return int(c)
