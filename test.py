@@ -52,6 +52,8 @@ class TestWeek3(unittest.TestCase):
 	def test_sum_when_delimiter_specified_and_numbers_greater_than_9(self):
 		self.assertEqual(add("//;\n1;20"), 21)
 
+	def test_sum_when_string_has_numbers_over_1000(self):
+		self.assertEqual(add("//oo\n1oo1000oo1001"), 1001)
 
 if __name__ == '__main__':
     unittest.main()
