@@ -13,8 +13,13 @@ def add(numbers):
     
   if (noNegatives(cleaned)):
     # if empty string, turn it into a 0
-    numList = [(int(c) if c != "" else 0) for c in cleaned] 
+    numList = [stringToInt(c) for c in cleaned] 
     return sum(numList)
+
+def stringToInt(c):
+  if (c != "" and int(c) <= 1000):
+    return int(c)
+  return 0
 
 def noNegatives(cleaned):
   negList = []
