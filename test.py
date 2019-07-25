@@ -41,5 +41,8 @@ class TestWeek3(unittest.TestCase):
 	def test_sum_when_delimeter_not_specified(self):
 		self.assertEqual(add("1,23\n4"), 10)
 
+	def test_exception_thrown_when_string_has_negative_number(self):
+		self.assertRaises(ValueError, add("//;\n1-23"))
+
 if __name__ == '__main__':
     unittest.main()
