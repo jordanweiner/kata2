@@ -1,4 +1,5 @@
 import unittest
+from mock import MagicMock
 from stringcalc import add
 
 class TestWeek1(unittest.TestCase):
@@ -54,6 +55,13 @@ class TestWeek3(unittest.TestCase):
 
 	def test_sum_when_string_has_numbers_over_1000(self):
 		self.assertEqual(add("//oo\n1oo1000oo1001"), 1001)
+
+class TestWeek3(unittest.TestCase):
+	def test_sum_when_string_has_multiple_delimeters(self):
+		self.assertEqual(add("//[*][%]\n1*2%3"), 6)
+
+	def test_sum_when_string_has_multiple_delimeters_with_more_than_one_char(self):
+		self.assertEqual(add("//[*&][%%%%]\n1*&2%%%%3"), 6)
 
 if __name__ == '__main__':
     unittest.main()
