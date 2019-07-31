@@ -3,14 +3,19 @@ def add(numbers):
   numList = []
   if (numbers.startswith("//")):
     # find delimiter
-    delim = numbers[2:(numbers.find('\n'))]
+    delim1 = numbers.split('[')[1].split(']')[0]
+    delim2 = numbers[(numbers.find(']') + 1):].split('[')[1].split(']')[0]
+
     # clean numbers string
-    cleaned = numbers.replace("//", "").replace("\n", "").split(delim)
+    cleanedString = numbers.replace("//", ",").replace("\n", ",")
+    cleanedString = cleanedString.replace("[", ",").replace("]", ",")
+    cleanedString = cleanedString.replace(delim1, ",").replace(delim2, ",")
+    cleaned = cleanedString.split(",")
   else:
     # clean numbers string
     cleaned = list(numbers.replace(",", "").replace("\n", ""))
-    # turn string to list of ints
     
+  # turn string to list of ints
   if (noNegatives(cleaned)):
     numList = [stringToInt(c) for c in cleaned] 
     return sum(numList)
