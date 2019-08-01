@@ -26,7 +26,7 @@ def add(numbers):
   numList = []
   if (noNegatives(cleaned)):
     numList = [stringToInt(c) for c in cleaned] 
-    print("\n" + str(sum(numList)))
+    print(sum(numList))
     return sum(numList)
 
 # if empty string, turn it into a 0

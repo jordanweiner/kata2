@@ -69,7 +69,7 @@ class TestWeek4(unittest.TestCase):
 		sys.stdout = output
 		add("//[*][%]\n1*2%3")
 		sys.stdout = sys.__stdout__
-		self.assertEqual(output.getvalue(), "\n6\n")
+		self.assertEqual(output.getvalue(), "6\n")
 
 if __name__ == '__main__':
     unittest.main()
