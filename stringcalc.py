@@ -1,21 +1,29 @@
 def add(numbers):
   cleaned = ""
-  numList = []
-  if (numbers.startswith("//")):
-    # find delimiter
-    delim1 = numbers.split('[')[1].split(']')[0]
-    delim2 = numbers[(numbers.find(']') + 1):].split('[')[1].split(']')[0]
 
-    # clean numbers string
-    cleanedString = numbers.replace("//", ",").replace("\n", ",")
-    cleanedString = cleanedString.replace("[", ",").replace("]", ",")
-    cleanedString = cleanedString.replace(delim1, ",").replace(delim2, ",")
-    cleaned = cleanedString.split(",")
+  if (numbers.startswith("//")):
+    delim = ""
+    delimArray = []
+    toReplace = ["//", "\n", "[", "]"]
+    cleanedStr = numbers
+
+    numbersWithDelim = numbers
+    while (numbersWithDelim.find("[") != -1):
+      # add delimeter to delimeter aray
+      toReplace.append(numbersWithDelim.split('[')[1].split(']')[0])
+      # cut that delimeter out of string
+      numbersWithDelim = numbersWithDelim[(numbersWithDelim.find(']') + 1):]
+    
+    for delim in toReplace:
+      cleanedStr = cleanedStr.replace(delim, ",")
+    cleaned = cleanedStr.split(",")
+    
   else:
     # clean numbers string
     cleaned = list(numbers.replace(",", "").replace("\n", ""))
     
   # turn string to list of ints
+  numList = []
   if (noNegatives(cleaned)):
     numList = [stringToInt(c) for c in cleaned] 
     return sum(numList)

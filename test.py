@@ -61,7 +61,7 @@ class TestWeek3(unittest.TestCase):
 		self.assertEqual(add("//[*][%]\n1*2%3"), 6)
 
 	def test_sum_when_string_has_multiple_delimeters_with_more_than_one_char(self):
-		self.assertEqual(add("//[*&][%%%%]\n1*&2%%%%3"), 6)
+		self.assertEqual(add("//[*&][%%%%][^]\n1*&2%%%%3^4"), 10)
 
 if __name__ == '__main__':
     unittest.main()
