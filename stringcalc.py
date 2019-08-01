@@ -17,7 +17,7 @@ def add(numbers):
     for delim in toReplace:
       cleanedStr = cleanedStr.replace(delim, ",")
     cleaned = cleanedStr.split(",")
-    
+
   else:
     # clean numbers string
     cleaned = list(numbers.replace(",", "").replace("\n", ""))
